@@ -1,10 +1,14 @@
 <!-- some event binding -->
 <label>Server Name</label>
-<input 
+<!--<input 
 	type="text" 
 	class="form-contol"
-	(input)="onUpdateServerName($event)">
-<p>{{ serverName }}</p>
+	(input)="onUpdateServerName($event)">-->
+<input 
+type="text" 
+class="form-control"
+[(ngModel)]="serverName">
+<!--<p>{{ serverName }}</p>-->
 <button 
 	class="btn btn-primary"
 	[disabled]="!allowNewServer"
