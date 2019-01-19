@@ -1,0 +1,5 @@
+<button 
+	class="btn btn-primary"
+	(click)="toggleDetails()">Display Details</button>
+<p *ngIf="displayDetails">Mighty Mouse is here to stay! Mighty Mouse to save the day!</p>
+<app-btn-logs *ngFor="let click of clicksLogged"></app-btn-logs>

@@ -10,6 +10,8 @@ import { ServersComponent } from './servers/servers.component';
 import { WarningComponent } from './warnings/warning.component';
 import { SuccessComponent } from './success/success.component';
 import { UserComponent } from './user/user.component';
+import { DetailsComponent } from './details/details.component';
+import { BtnLogsComponent } from './btn-logs/btn-logs.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { UserComponent } from './user/user.component';
     ServersComponent,
     WarningComponent,
     SuccessComponent,
-    UserComponent
+    UserComponent,
+    DetailsComponent,
+    BtnLogsComponent
   ],
   imports: [
     BrowserModule,
