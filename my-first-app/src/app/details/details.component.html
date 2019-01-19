@@ -2,4 +2,16 @@
 	class="btn btn-primary"
 	(click)="toggleDetails()">Display Details</button>
 <p *ngIf="displayDetails">Mighty Mouse is here to stay! Mighty Mouse to save the day!</p>
-<app-btn-logs *ngFor="let click of clicksLogged"></app-btn-logs>
+
+<div *ngFor="let click of clicksLogged; let i = index">
+	<p *ngIf="i < 5; else bluelog">
+		<app-btn-logs></app-btn-logs>
+	</p>
+	<ng-template #bluelog>
+		<p 
+		[ngStyle]="{backgroundColor: 'blue'}"
+		[ngClass]="'afterthe5th'">
+			<app-btn-logs></app-btn-logs>
+		</p>
+	</ng-template>
+</div>
