@@ -4,7 +4,7 @@
 <p *ngIf="displayDetails">Mighty Mouse is here to stay! Mighty Mouse to save the day!</p>
 
 <div *ngFor="let click of clicksLogged; let i = index">
-	<p *ngIf="i < 5; else bluelog">
+	<p *ngIf="i+1 < 5; else bluelog">
 		<app-btn-logs></app-btn-logs>
 	</p>
 	<ng-template #bluelog>
