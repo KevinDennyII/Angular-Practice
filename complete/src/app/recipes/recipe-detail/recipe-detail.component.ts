@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+// tslint:disable-next-line:import-spacing
 import  { Recipe } from '../recipe.model';
 import {RecipeService} from '../recipe.service';
-import {ActivatedRoute, Params} from '@angular/router';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 
 @Component({
   selector: 'app-recipe-detail',
@@ -11,10 +12,11 @@ import {ActivatedRoute, Params} from '@angular/router';
 })
 export class RecipeDetailComponent implements OnInit {
   recipe: Recipe;
-  id: number;
+  id: number; //this is for demo purposes
 
   constructor(private recipeService: RecipeService,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit() {
     // use the route and subscribe
@@ -30,6 +32,11 @@ export class RecipeDetailComponent implements OnInit {
 
   onAddToShoppingList() {
     this.recipeService.addIngredientsToShoppingList(this.recipe.ingredients);
+  }
+
+  onEditRecipe() {
+    //this.router.navigate(['edit'], {relativeTo: this.route});
+    this.router.navigate(['../', this.id, 'edit'], {relativeTo: this.route} );
   }
 
 }
