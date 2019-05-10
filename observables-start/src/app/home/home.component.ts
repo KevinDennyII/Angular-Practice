@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/RX';
-import {Subscription} from 'rxjs';
+import {Observer, Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     );
 
     // Angular technically does the creation of an observable for you
-    const myObservable = Observable.create((observer:  Observer) => {
+    const myObservable = Observable.create((observer: Observer<string>) => {
       setTimeout(() => {
         observer.next('first package');
       }, 2000);
