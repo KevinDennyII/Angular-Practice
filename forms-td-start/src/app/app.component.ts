@@ -51,10 +51,12 @@ export class AppComponent {
   onSubmit() {
     this.submitted = true;
 
+    // entered data
     this.user.username = this.signupForm.value.userData.username;
     this.user.email = this.signupForm.value.userData.email;
     this.user.secretQuestion = this.signupForm.value.userData.secret;
 
+    // selection
     this.user.answer = this.signupForm.value.questionAnswer;
     this.user.gender = this.signupForm.value.gender;
 
