@@ -22,7 +22,7 @@ export class AppComponent {
 
   suggestedUserName() {
     const suggestedUserName = 'Superuser';
-    // passing an exact copy of the form as a javascript object
+    // passing an exact copy of the form as a JavaScript object
     // setValue sets you WHOLE form
     // this.signupForm.setValue({
     //   userData: {
