@@ -54,7 +54,7 @@ export class AppComponent implements OnInit {
 
   onAddHobby() {
     const control = new FormControl(null, Validators.required);
-    (<FormArray>this.signupForm.get('hobbies')).push(control); // must be explicitly casted
+    (<FormArray>this.signupForm.get('hobbies')).push(control); // Must be explicitly casted
   }
 
   forbiddenNames (control: FormControl):  {[s: string]: boolean} {
