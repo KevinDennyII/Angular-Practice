@@ -1,16 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
 
+import {Subscription} from 'rxjs/Subscription';
 import { Recipe } from '../recipe.model';
 import { RecipeService } from '../recipe.service';
-import {ActivatedRoute, Router} from '@angular/router';
+
+
 
 @Component({
   selector: 'app-recipe-list',
   templateUrl: './recipe-list.component.html',
   styleUrls: ['./recipe-list.component.css']
 })
-export class RecipeListComponent implements OnInit {
+export class RecipeListComponent implements OnInit, OnDestroy {
   recipes: Recipe[];
+  subscription: Subscription;
 
   //Making sure to grab an instance of the Recipe Service in the constructor
   constructor(private recipeService: RecipeService,
@@ -18,7 +22,17 @@ export class RecipeListComponent implements OnInit {
               private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.subscription = this.recipeService.recipesChanged
+      .subscribe(
+        (recipes: Recipe[]) => {
+          this.recipes = recipes;
+        }
+      );
     this.recipes = this.recipeService.getRecipes();
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe(); // prevents the causing of memory leaks
   }
 
   onNewRecipe() {
