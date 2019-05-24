@@ -38,8 +38,14 @@ export class RecipeService {
 
   }
 
+  setRecipes(recipes: Recipe[]) {
+	  this.recipes = recipes;
+	  this.recipesChanged.next(this.recipes.slice());
+  }
+
   getRecipes() {
-  	return this.recipes.slice(); //returns a new array with an exact copy of the private array
+    // tslint:disable-next-line:indent
+  	return this.recipes.slice(); // returns a new array with an exact copy of the private array
   }
 
   getRecipe(index: number) {
