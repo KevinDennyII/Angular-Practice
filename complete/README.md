@@ -6,7 +6,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-This has also been deployed on my personal AWS S3 Bucket --> http://ng-recipe-book-deployment-k2.s3-website-us-east-1.amazonaws.com/shopping-list
+This has also been deployed in two places:
+* The Angular 7 project was deployed to my personal AWS S3 Bucket --> http://ng-recipe-book-deployment-k2.s3-website-us-east-1.amazonaws.com/shopping-list
+* The Angular 8 project was deployed to my Firebase hosting --> https://ng-recipe-book-c5a67.firebaseapp.com
 
 ## Code scaffolding
 
