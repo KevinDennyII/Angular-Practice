@@ -1,5 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import * as firebase from 'firebase';
+import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+
+import { LoggingService } from './logging.service';
+import * as fromApp from './store/app.reducer';
+import * as AuthActions from './auth/store/auth.actions';
 
 @Component({
   selector: 'app-root',
@@ -7,19 +11,13 @@ import * as firebase from 'firebase';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  // tslint:disable-next-line:indent
-	loadedFeature = 'recipe';
+  constructor(
+    private store: Store<fromApp.AppState>,
+    private loggingService: LoggingService
+  ) {}
 
-  // tslint:disable-next-line:indent
-	ngOnInit() {
-    // tslint:disable-next-line:indent
-	  firebase.initializeApp({
-      apiKey: "AIzaSyBW7__TSBMNERgvLrqgm6xls2n_UO_7Ev4",
-      authDomain: "ng-recipe-book-c5a67.firebaseapp.com",
-    });
+  ngOnInit() {
+    this.store.dispatch(new AuthActions.AutoLogin());
+    this.loggingService.printLog('Hello from AppComponent ngOnInit');
   }
-
-  onNavigate(feature: string) {
-		this.loadedFeature = feature;
-	}
 }
